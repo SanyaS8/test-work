@@ -3,7 +3,7 @@ import os
 import json
 
 class Data:
-    def __init__(self, filename:str):
+    def __init__(self, filename:str) -> None:
         self.filename = filename
         self.data1 = list()
         self.data2 = list()
@@ -59,7 +59,7 @@ class Data:
             print(f"Ошибка: не удалось открыть файл или неверный формат. Ошибка {e}")
             sys.exit(1)
     
-    def payout(self):
+    def payout(self) -> None:
         width = [40,7,7,10]
         text = ['name','hours','rate','payout']
         print(f"{text[0]:^{width[0]}}{text[1]:^{width[1]}}{text[2]:^{width[2]}}{text[3]:^{width[3]}}")
@@ -75,7 +75,7 @@ class Data:
             print(f"{t_sum:>64}")
         self.create_payout_report()
     
-    def create_payout_report(self):
+    def create_payout_report(self) -> None:
         department_data_list = list()
         for department in self.list_of_departments:
             employees = list()
@@ -116,13 +116,11 @@ def main():
     report_index = args.index('--report')
 
     try:
-        # Всё до --report
         csv_files = args[:report_index]
     except IndexError:
         print("Ошибка: перед --report должно быть указано имя файла")
         sys.exit(1)
 
-    # Значение после --report
     try:
         report_types = args[report_index + 1:]
     except IndexError:
