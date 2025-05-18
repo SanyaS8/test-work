@@ -1,0 +1,38 @@
+[
+    {
+        "department": "HR",
+        "employees": [
+            {
+                "id": "101",
+                "name": "Grace Lee",
+                "email": "grace@example.com",
+                "hours_worked": "160",
+                "hourly_rate": "45",
+                "payout": 7200
+            },
+            {
+                "id": "103",
+                "name": "Ivy Clark",
+                "email": "ivy@example.com",
+                "hours_worked": "158",
+                "hourly_rate": "38",
+                "payout": 6004
+            }
+        ],
+        "total:": 13204
+    },
+    {
+        "department": "Marketing",
+        "employees": [
+            {
+                "id": "102",
+                "name": "Henry Martin",
+                "email": "henry@example.com",
+                "hours_worked": "150",
+                "hourly_rate": "35",
+                "payout": 5250
+            }
+        ],
+        "total:": 5250
+    }
+]
