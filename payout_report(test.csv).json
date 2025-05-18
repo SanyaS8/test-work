@@ -1,0 +1,38 @@
+[
+    {
+        "department": "Design",
+        "employees": [
+            {
+                "id": "2",
+                "name": "Bob Smith",
+                "email": "bob@example.com",
+                "hours_worked": "150",
+                "hourly_rate": "40",
+                "payout": 6000
+            },
+            {
+                "id": "3",
+                "name": "Carol Williams",
+                "email": "carol@example.com",
+                "hours_worked": "170",
+                "hourly_rate": "60",
+                "payout": 10200
+            }
+        ],
+        "total:": 16200
+    },
+    {
+        "department": "Marketing",
+        "employees": [
+            {
+                "id": "1",
+                "name": "Alice Johnson",
+                "email": "alice@example.com",
+                "hours_worked": "160",
+                "hourly_rate": "50",
+                "payout": 8000
+            }
+        ],
+        "total:": 8000
+    }
+]

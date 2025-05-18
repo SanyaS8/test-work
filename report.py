@@ -15,7 +15,18 @@ class Data:
         self.list_of_departments = list()
         try:
             with open(filename, 'r') as file:
-                for line in file:
+                lines = file.readlines()
+                if not lines:
+                    print(f"Файл {os.path.basename(self.filename)} пуст!")
+                    self.department = ["department"]
+                    self.id = ["id"]
+                    self.name = ["name"]
+                    self.email = ["email"]
+                    self.hours_worked = ["hours_worked"]
+                    self.hourly_rate = ["hourly_rate"]
+                    self.seccesful = False
+
+                for line in lines:
                     rows= line.split(',')
                     self.data1.append(rows[0])
                     self.data2.append(rows[1])
@@ -40,7 +51,7 @@ class Data:
             self.list_of_departments = list(set(self.department))
             self.list_of_departments.remove('department')
             self.list_of_departments.sort()
-            
+            self.seccesful = True
 
         except FileNotFoundError:
             print("Ошибка: файл не найден")
@@ -88,7 +99,7 @@ class Data:
             }
             department_data_list.append(department_data)
         json_data = json.dumps(department_data_list, indent=4)
-        with open(f"payout_report({self.filename}).json", "w") as file:
+        with open(f"payout_report({os.path.basename(self.filename)}).json", "w") as file:
             file.write(json_data)
         print("Отчет о выплате зарплат создан.")
 
@@ -125,13 +136,13 @@ def main():
                 data = Data(csv_file)
                 datas.append(data)
             else:   
-                print(f"Ошибка: файл {csv_file} не существует. Данный файл пропускает формирование отчета.")
+                print(f"Ошибка: файл {os.path.basename(csv_file)} не существует. Данный файл пропускает формирование отчета.")
         except IndexError:
             sys.exit(1)
     
     for data in datas:
         for report_type in report_types:
-            if report_type == 'payout':
+            if report_type == 'payout' and data.seccesful:
                 data.payout()
             else:
                 print(f"Ошибка: неизвестный тип отчета {report_type}")
